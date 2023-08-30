@@ -1,0 +1,78 @@
+from flask import *
+# from forms import BasicForm
+import pymysql
+
+
+
+app = Flask(__name__)
+app.config['SECRET_KEY']='woop'
+
+def connection():
+    server = 'localhost'
+    db = 'rubberducks'
+    uid = 'sky'
+    pwd = 'Qwerty1001?'
+    conn = pymysql.connect(host=server, user=uid, password=pwd, database=db)
+    conn.autocommit(True)
+    return conn
+
+@app.route('/')
+def homepage():
+    return render_template("Home_PZ.html")
+
+# @app.route('/Order')
+# def Order():
+#     return render_template("Order.html")
+
+@app.route('/Menu')
+def Menu():
+    return render_template("Menu.html")
+
+@app.route('/Events')
+def Events():
+    return render_template("Events.html")
+
+@app.route('/AboutUs_pz')
+def AboutUs_pz():
+    return render_template("AboutUs_pz.html")
+
+
+
+
+
+
+
+
+@app.route('/Order', methods = ['GET', 'POST'])
+def  Order():
+    if request.method == "POST":
+        YourName = request.form["Your Name"]
+        NumberofGuest = request.form["Number of Guest"]
+        email = request.form["email"]
+
+        conn = connection()
+        cursor = conn.cursor()
+        cursor.execute("insert into customers (firstname, lastname, email) values('"+YourName+"','"+NumberofGuest+"','"+email+"')")
+        return "Customer successfully added"
+    return render_template("Order.html")
+
+@app.route('/Order', methods = ['GET', 'POST'])
+def addorder():
+    if request.method == "POST":
+        dish = request.form["dish"]
+        eventname = request.form["eventname"]
+        eventdate = request.form["eventdate"]
+
+        conn = connection()
+        cursor = conn.cursor()
+        cursor.execute("insert into orders (dish, eventname, eventdate) values('" + dish + "','" + eventname + "','" + eventdate + "')")
+        return "Order successfully added"
+    return render_template("Order.html")
+
+
+
+
+
+if __name__=="__main__":
+    app.run()
+

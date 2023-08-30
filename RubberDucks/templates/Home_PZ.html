@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Home Page</title>
+
+
+</head>
+
+<body>
+
+  <div class="carousel-container">
+
+    <div class="carousel-slider">
+
+      <div class="carousel-slide">
+
+        <img src="{{url_for('static', filename='food1.jpg')}}" alt="food1">
+
+      </div>
+
+      <div class="carousel-slide">
+
+        <img src="{{url_for('static', filename='food2.jpg')}}" alt="food2">
+
+      </div>
+
+      <div class="carousel-slide">
+
+        <img src="{{url_for('static', filename='food3.jpg')}}" alt="food3">
+
+      </div>
+
+      <div class="carousel-slide">
+
+        <img src="{{url_for('static', filename='food4.jpg')}}" alt="food4">
+
+      </div>
+
+      
+
+    </div>
+
+  </div>
+
+ 
+
+  <div class="main-container">
+
+    <head>
+
+      <meta charset="UTF-8">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+
+      <title>Pure Satizfaktion</title>
+
+    </head>
+
+    <body>
+
+      <div class="background-image">
+
+        <header>
+
+          <nav>
+
+            <div class="logo">
+
+              <h1>Pure Satizfaktion</h1>
+
+            </div>
+
+            <ul>
+              <!-- <li><a href="/Home_PZ">Home</a></li> -->
+
+              <li><a href="/Events">Events</a></li>
+
+              <li><a href="/AboutUS_pz">About Us</a></li>
+
+              <li><a href="/Order">Order</a></li>
+
+              <li><a href="/Menu">Menu</a></li>
+            </ul>
+
+          </nav>
+
+          <img src="{{url_for('static', filename='bw logo.png')}}" alt="bw logo">
+
+        </header>
+
+        <div class="social-links">
+
+          
+
+        </div>
+
+      </div>
+
+    </body>
+
+    <footer>
+
+      <div class="contact-bar">
+
+        <a href="mailto:puresatizfaktion@gmail.com">Email: puresatizfaktion@gmail.com</a>
+
+        <span>|</span>
+
+        <a href="https://www.instagram.com/pure_satizfaktion/" img src="{{url_for('static', filename='instalogo.jpg')}}" alt="instalogo"></a>
+
+        <span>|</span>  
+
+        <a href="tel:07506 606643">Phone: 07506 606643</a>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
